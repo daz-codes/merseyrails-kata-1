@@ -7,7 +7,7 @@ class EmailsController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.update("emails", target: "emails", partial: "emails/list", locals: { selected: @email }, **{ method: "morph" })
+        render turbo_stream: turbo_stream.update("emails", target: "emails", partial: "emails/list", method: "morph", locals: { selected: @email })
       end
       format.html # fallback for normal requests
     end
