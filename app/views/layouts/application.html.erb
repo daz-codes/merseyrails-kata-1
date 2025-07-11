@@ -29,9 +29,8 @@
         <div class="sticky top-0 bg-white p-4 flex items-center justify-center border-b text-2xl font-bold z-10">
           <h1>Inbox</h1>
         </div>
-        <div class="flex flex-col divide-y divide-gray-200" id="emails" data-controller="email">
-          <%= render Email.all, selected: nil %>
-        </div>
+        <%= turbo_stream_from "emails" %>
+        <%= render "emails/list", selected: nil %>
       </div>
       <div class="flex-1 p-8 bg-slate-100">
         <turbo-frame id="email">
