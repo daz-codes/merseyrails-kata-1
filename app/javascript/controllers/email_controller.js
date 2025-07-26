@@ -1,7 +1,7 @@
 import { Controller } from "@daz/stimulus";
 
 export default class extends Controller {
-  static classes = ["active"];
+  static classes = ["active", "test"];
   static values = { active: String };
 
   connect() {
@@ -11,7 +11,7 @@ export default class extends Controller {
     }
 
     this.element.addEventListener("click", (event) => {
-      const prevEmail = this.findElement(this.activeValue);
+      const prevEmail = this.findElement(this.activeClass);
       prevEmail?.classList?.remove(this.activeClass);
       const email = event.target.closest("a");
       email.classList.add(this.activeClass);
